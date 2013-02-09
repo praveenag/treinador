@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Treinador</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="enter_infinitive">Enter the verb infinitive</string>
+    <string name="enter_tense">Enter the tense</string>
+    <string name="conjugate">Conjugate</string>
+
+    <string-array name="tenses">
+        <item>Past</item>
+        <item>Present</item>
+        <item>Future</item>
+    </string-array>
+
+    <string name="title_activity_conjugation">Conjugation</string>
+
+</resources>
