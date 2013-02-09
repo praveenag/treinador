@@ -4,30 +4,11 @@
     android:layout_height="match_parent"
     tools:context=".Home" >
 
-    <Button
-        android:id="@+id/conjugate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:onClick="conjugate"
-        android:text="@string/conjugate" />
-
-    <EditText
-        android:id="@+id/verb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/conjugate"
-        android:layout_alignBottom="@+id/conjugate"
-        android:layout_toLeftOf="@+id/conjugate"
-        android:ems="10"
-        android:hint="@string/verb" />
-
     <TextView
-        android:id="@+id/conjugation"
-        android:layout_width="104dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/verb"
-        android:layout_below="@+id/conjugate" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/welcome" />
 
 </RelativeLayout>
