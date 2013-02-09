@@ -4,5 +4,7 @@
     <string name="app_name">Treinador</string>
     <string name="welcome">Bem-vindos!</string>
     <string name="menu_settings">Settings</string>
+    <string name="verb">Verb</string>
+    <string name="conjugate">Conjugate</string>
 
 </resources>
