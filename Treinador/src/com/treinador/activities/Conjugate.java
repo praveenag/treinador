@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 import com.treinador.R;
 import com.treinador.services.ConjugationService;
 
@@ -19,15 +18,16 @@ public class Conjugate extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_conjugate);
+        createSpinner();
+    }
 
+    private void createSpinner() {
         Spinner spinner = (Spinner) findViewById(R.id.tense_input);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.tenses, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
     }
 
     @Override
@@ -37,12 +37,16 @@ public class Conjugate extends Activity {
     }
 
     public void conjugateInfinitive(View view) {
-        String tenseInput = ((Spinner)findViewById(R.id.tense_input)).getSelectedItem().toString();
-        String infinitiveInput = ((EditText)findViewById(R.id.infinitive_input)).getText().toString();
-        String conjugatedVerb = conjugationService.conjugate(infinitiveInput, tenseInput);
+        String conjugatedVerb = conjugate();
         Intent conjugationIntent = new Intent(this, Conjugation.class);
         conjugationIntent.putExtra("RESULT", conjugatedVerb);
         startActivity(conjugationIntent);
+    }
+
+    private String conjugate() {
+        String tenseInput = ((Spinner) findViewById(R.id.tense_input)).getSelectedItem().toString();
+        String infinitiveInput = ((EditText) findViewById(R.id.infinitive_input)).getText().toString();
+        return conjugationService.conjugate(infinitiveInput, tenseInput);
     }
 
 }
