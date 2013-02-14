@@ -17,5 +17,6 @@
 	    android:id="@+id/conjugate_button"
 	    android:text="@string/conjugate"
 	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"/>
+	    android:layout_height="wrap_content"
+        android:onClick="conjugateInfinitive"/>
 </LinearLayout>
