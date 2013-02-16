@@ -19,6 +19,7 @@ public class Conjugate extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conjugate);
+
         createSpinner();
     }
 
@@ -37,8 +38,10 @@ public class Conjugate extends Activity {
     }
 
     public void conjugateInfinitive(View view) {
+//        boolean b = conjugationService.dbConnection(getApplicationContext());
         String conjugatedVerb = conjugate();
         Intent conjugationIntent = new Intent(this, Conjugation.class);
+//        conjugationIntent.putExtra("RESULT", String.valueOf(b));
         conjugationIntent.putExtra("RESULT", conjugatedVerb);
         startActivity(conjugationIntent);
     }
