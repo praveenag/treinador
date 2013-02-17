@@ -1,8 +1,8 @@
 package com.treinador.db;
 
 public class ColumnDataType {
-    public String column;
-    public String dataType;
+    private String column;
+    private String dataType;
     private boolean primary;
 
     public ColumnDataType(String column, String dataType, boolean isPrimary) {
@@ -12,7 +12,11 @@ public class ColumnDataType {
     }
 
     String columnStatement() {
-        String statement = column.concat(Constants.SPACE).concat(dataType);
-        return primary ? statement.concat(Constants.PRIMARY_KEY) : statement ;
+        String statement = Constants.SPACE.concat(column.concat(Constants.SPACE)).concat(dataType);
+        return primary ? statement.concat(Constants.PRIMARY_KEY) : statement;
+    }
+
+    public String getColumn() {
+        return column;
     }
 }

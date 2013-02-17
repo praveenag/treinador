@@ -1,20 +1,23 @@
-package com.treinador.db;
+package com.treinador.domain;
 
 import android.provider.BaseColumns;
+import com.treinador.db.ColumnDataType;
+import com.treinador.db.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class VerbTenseRuleMap implements BaseColumns {
-    public static final String TABLE_NAME = "verb_tense_rule_mapping_table";
+    public static final String TABLE_NAME = "verb_tense_rule_mapping";
     public static final String VERB_ID = "verb_id";
     public static final String TENSE_ID = "tense_id";
     public static final String RULE_ID = "rule_id";
-    private static ArrayList<ColumnDataType> columnDataTypes;
+    private static List<ColumnDataType> columnDataTypes;
 
-    private VerbTenseRuleMap() {
+
+    private VerbTenseRuleMap(){
+
     }
-
     public static List<ColumnDataType> initializeColumns(){
         columnDataTypes = new ArrayList<ColumnDataType>();
         columnDataTypes.add(new ColumnDataType(VerbTenseRuleMap._ID, Constants.INTEGER, true));
@@ -24,12 +27,4 @@ public abstract class VerbTenseRuleMap implements BaseColumns {
         return columnDataTypes;
     }
 
-    public static String[] getColumns() {
-        ArrayList<String> columns = new ArrayList<String>();
-
-        for (ColumnDataType columnDataType : columnDataTypes) {
-            columns.add(columnDataType.column);
-        }
-        return (String[]) columns.toArray();
-    }
 }

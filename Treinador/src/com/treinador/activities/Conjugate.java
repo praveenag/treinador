@@ -3,23 +3,25 @@ package com.treinador.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import com.treinador.R;
+import com.treinador.db.DatabaseHelper;
 import com.treinador.services.ConjugationService;
 
 public class Conjugate extends Activity {
 
-    private final ConjugationService conjugationService = new ConjugationService();
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        databaseHelper = new DatabaseHelper(getApplicationContext());
         setContentView(R.layout.activity_conjugate);
-
         createSpinner();
     }
 
@@ -38,18 +40,13 @@ public class Conjugate extends Activity {
     }
 
     public void conjugateInfinitive(View view) {
-//        boolean b = conjugationService.dbConnection(getApplicationContext());
-        String conjugatedVerb = conjugate();
-        Intent conjugationIntent = new Intent(this, Conjugation.class);
-//        conjugationIntent.putExtra("RESULT", String.valueOf(b));
-        conjugationIntent.putExtra("RESULT", conjugatedVerb);
-        startActivity(conjugationIntent);
-    }
-
-    private String conjugate() {
         String tenseInput = ((Spinner) findViewById(R.id.tense_input)).getSelectedItem().toString();
         String infinitiveInput = ((EditText) findViewById(R.id.infinitive_input)).getText().toString();
-        return conjugationService.conjugate(infinitiveInput, tenseInput);
+
+        Intent conjugateIntent = new Intent(getApplication(), ConjugationService.class);
+        conjugateIntent.putExtra("tense", tenseInput);
+        conjugateIntent.putExtra("verbInfinitive", infinitiveInput);
+        startService(conjugateIntent);
     }
 
 }

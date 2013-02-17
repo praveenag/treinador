@@ -26,6 +26,7 @@
             android:name="com.treinador.activities.Conjugation"
             android:label="@string/title_activity_conjugation" >
         </activity>
+        <service android:name="com.treinador.services.ConjugationService" android:exported="false"/>
     </application>
 
 </manifest>
