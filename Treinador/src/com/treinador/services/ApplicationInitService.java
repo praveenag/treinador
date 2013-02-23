@@ -10,6 +10,6 @@ public class ApplicationInitService extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        databaseHelper = new DatabaseHelper(getApplicationContext());
+//        databaseHelper = new DatabaseHelper(getApplicationContext());
     }
 }

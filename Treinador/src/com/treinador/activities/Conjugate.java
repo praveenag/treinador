@@ -15,12 +15,9 @@ import com.treinador.services.ConjugationService;
 
 public class Conjugate extends Activity {
 
-    private DatabaseHelper databaseHelper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        databaseHelper = new DatabaseHelper(getApplicationContext());
         setContentView(R.layout.activity_conjugate);
         createSpinner();
     }

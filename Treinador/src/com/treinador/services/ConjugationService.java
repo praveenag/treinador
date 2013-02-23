@@ -17,13 +17,12 @@ public class ConjugationService extends IntentService {
     @Override
     public void onCreate() {
         super.onCreate();
-        this.databaseHelper = new DatabaseHelper(getApplicationContext());
+        this.databaseHelper = DatabaseHelper.getInstance(getApplicationContext());
     }
 
     private String conjugate(String verbInfinitive, String tense){
         String[] projection = {VerbTenseRuleMap.RULE_ID};
-        //return databaseHelper.querySql(VerbTenseRuleMap.TABLE_NAME, projection, "verb_id = ? and tense_id = ?", new String[]{"11","2"},null,null,null,null);
-        return verbInfinitive + " " + tense;
+        return databaseHelper.querySql(VerbTenseRuleMap.TABLE_NAME, projection, "verb_id = ? and tense_id = ?", new String[]{"11","2"},null,null,null,null);
     }
 
     @Override
