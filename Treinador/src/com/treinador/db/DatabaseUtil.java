@@ -1,8 +1,5 @@
 package com.treinador.db;
 
-import com.treinador.domain.Tense;
-import com.treinador.rules.ERPresentTenseRule;
-
 import java.util.ArrayList;
 import java.util.List;
 

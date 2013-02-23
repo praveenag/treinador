@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Verb implements BaseColumns {
-    public static final String TABLE_NAME = "verb";
+    public static final String TABLE_NAME = "verbs";
     public static final String VERB = "verb";
     private static List<ColumnDataType> columnDataTypes;
 

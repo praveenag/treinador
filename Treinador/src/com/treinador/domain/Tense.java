@@ -11,8 +11,8 @@ public enum Tense implements BaseColumns{
     PAST("1"),
     PRESENT("2"),
     FUTURE("3");
-    public static final String TENSE = "TENSE";
-    public static final String TABLE_NAME ="TENSES";
+    public static final String TENSE = "tense";
+    public static final String TABLE_NAME ="tenses";
     private final String id;
 
     Tense(String id) {
