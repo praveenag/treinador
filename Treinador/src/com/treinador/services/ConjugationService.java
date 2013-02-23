@@ -17,7 +17,7 @@ public class ConjugationService extends IntentService {
     @Override
     public void onCreate() {
         super.onCreate();
-        this.databaseHelper = DatabaseHelper.getInstance(getApplicationContext());
+        this.databaseHelper = ApplicationInitService.getDatabaseHelper();
     }
 
     private String conjugate(String verbInfinitive, String tense){
